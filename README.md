@@ -3,6 +3,8 @@
 Module « Techniques avancées pour systèmes intelligents » — 3ᵉ année Génie Mécatronique, ENISo — 2026/2027
 Binôme : Ahmed Daouahi — Mohamed Bennour
 
+Dépôt : https://github.com/AhmedDaouahi-ing/maintenance-predictive-ai4i
+
 ## Objectif
 
 À partir des mesures d'une fraiseuse (jeu **AI4I 2020**), le projet :
@@ -29,7 +31,7 @@ Binôme : Ahmed Daouahi — Mohamed Bennour
 .
 ├── maintenance_predictive_ai4i.ipynb   # notebook complet (code + résultats + interprétations)
 ├── maintenance_predictive_ai4i.html    # version lisible sans Jupyter
-├── data/ai4i2020.csv                   # jeu de données (10 000 lignes)
+├── ai4i2020.csv                        # jeu de données (10 000 lignes)
 ├── requirements.txt
 └── README.md
 ```
@@ -48,15 +50,15 @@ Le notebook installe automatiquement `scikit-fuzzy` et `xgboost` s'ils sont abse
 ### En local
 
 ```bash
-git clone <url-du-depot>
-cd <dossier-du-depot>
+git clone https://github.com/AhmedDaouahi-ing/maintenance-predictive-ai4i.git
+cd maintenance-predictive-ai4i
 python -m venv .venv
 source .venv/bin/activate        # Windows : .venv\Scripts\activate
 pip install -r requirements.txt
 jupyter notebook maintenance_predictive_ai4i.ipynb
 ```
 
-Le notebook lit `data/ai4i2020.csv`.
+Le notebook lit `ai4i2020.csv` à la racine du dépôt.
 
 ## Reproductibilité
 
