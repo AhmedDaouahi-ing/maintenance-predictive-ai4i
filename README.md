@@ -18,12 +18,13 @@ Dépôt : https://github.com/AhmedDaouahi-ing/maintenance-predictive-ai4i
 |---|---|---|---|
 | Baseline « jamais de panne » (validation croisée) | 0,00 | 0,00 | 0,00 |
 | Random Forest de référence, variables brutes (validation croisée) | 0,54 | 0,89 | 0,67 |
-| **Notre Random Forest (validation croisée, 5 plis)** | **0,82** | **0,89** | **0,85** |
+| **Notre Random Forest (validation croisée, 5 plis, seuil 0,5)** | **0,76** | **0,97** | **0,85** |
+| **Notre Random Forest, seuil retenu 0,3 (validation croisée)** | **0,84** | **0,91** | **0,87** |
 | XGBoost (validation croisée, 5 plis) | 0,83 | 0,78 | 0,80 |
 
-- Seuil de décision retenu : **0,4** (F2-score maximal en validation croisée).
-- Jeu de test : 56 pannes détectées sur 68 ; les pannes manquées sont surtout des pannes par usure de l'outil (TWF), aléatoires dans ce jeu.
-- Système flou : **90 % des pannes du test classées « urgente »**, une seule classée « faible » ; 83 % des mesures saines restent en priorité faible.
+- Seuil de décision retenu : **0,3** (F2-score maximal en validation croisée).
+- Jeu de test : 56 pannes détectées sur 68 (rappel 0,82, précision 0,90, F1 0,86) contre 42 pour l'approche de référence ; les pannes manquées sont surtout des pannes par usure de l'outil (TWF), aléatoires dans ce jeu.
+- Système flou : **85 % des pannes du test classées « urgente »**, une seule classée « faible » ; 84 % des mesures saines restent en priorité faible.
 
 ## Contenu du dépôt
 
@@ -65,7 +66,7 @@ Le notebook lit `ai4i2020.csv` à la racine du dépôt.
 - Graine aléatoire fixée (`GRAINE = 42`) pour le découpage, la validation croisée et les modèles.
 - Le jeu de test (20 %) n'est utilisé qu'une fois, à la fin ; le modèle et le seuil sont choisis par validation croisée sur le jeu d'entraînement.
 - Les colonnes TWF, HDF, PWF, OSF et RNF (type de panne, connu après la panne) sont exclues des entrées pour éviter la fuite de données.
-- Selon la version de scikit-learn, les résultats peuvent varier de quelques centièmes.
+- Les résultats présentés ont été obtenus avec scikit-learn 1.6 (version de Kaggle) ; une version plus récente peut donner des chiffres un peu différents.
 
 ## Source des données
 
